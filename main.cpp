@@ -2,7 +2,7 @@
 CSE 310 Hash Function DIY Contest
 Instructor: Yiran "Lawrence" Luo
 Your name(s): Norman Manigault
-Your team alias: 
+Your team alias: LightskinProdigy (Solo)
 */
 
 #include <iostream>
@@ -37,12 +37,20 @@ int main() {
     // which puts out the placeholders only.
 
     // Your time to shine starts now
+    hashMap* map = createHashMap(k);
+    for (int i = 0; i < n; i++) {
+        insert(map, texts[i]);
+    }
 
     cout << "==== Printing the contents of the first 5 slots ====" << endl;
+    printFirstFiveSlots(map);
 
     cout << "==== Printing the slot lengths ====" << endl;
+    printSlotLengths(map);
 
     cout << "==== Printing the standard deviation =====" << endl;
+    double stddev =calculateStandardDeviation(map);
+    cout << fixed << setprecision(4) << stddev << endl;
 
     return 0;
 }

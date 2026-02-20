@@ -1,3 +1,5 @@
+#ifndef HASH_H
+#define HASH_H
 #include <iostream>
 #include <string>
 #include <cmath>
@@ -5,4 +7,27 @@
 
 using namespace std;
 
-int hash_function(string text);
+struct node {
+    string key;
+    node* next;
+};
+
+struct hashMap {
+    int size;
+    int count;
+    node** arr;
+};
+
+// hash table functions
+hashMap* createHashMap(int k);
+void insert(hashMap* map, string key);
+
+// output functions
+void printFirstFiveSlots(hashMap* map);
+void printSlotLengths(hashMap* map);
+double calculateStandardDeviation(hashMap* map);
+
+// custom hash function
+int hash_function(string text, int k);
+
+#endif
